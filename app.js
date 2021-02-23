@@ -47,31 +47,48 @@
 // const removedElements = hobbies.splice(0, 1);//deletes all items
 // //negative values goes to the end
 
-const testResults = [1, 5.4, 1.5, 10.0, 1.5, -5, 10];
-// const storedResults = testResults.slice(0, 2);//slice also can be used to select ranges from an array
+// const testResults = [1, 5.4, 1.5, 10.0, 1.5, -5, 10];
+// // const storedResults = testResults.slice(0, 2);//slice also can be used to select ranges from an array
 
-const storedResults = testResults.concat([3.99, 2]);
+// const storedResults = testResults.concat([3.99, 2]);
 
-testResults.push(5.91); //since arrays are reference based if u add elements to testResults, storedResults is also updated. though, slice makes it so that it does not update
+// testResults.push(5.91); //since arrays are reference based if u add elements to testResults, storedResults is also updated. though, slice makes it so that it does not update
 
-console.log(storedResults, testResults);
+// console.log(storedResults, testResults);
 
-console.log(testResults.indexOf(1.5)); //searches for the index of the value passed
-console.log(testResults.lastIndexOf(1.5)); //searches for the index of the value passed from the end
+// console.log(testResults.indexOf(1.5)); //searches for the index of the value passed
+// console.log(testResults.lastIndexOf(1.5)); //searches for the index of the value passed from the end
 
-const personData = [{ name: "Max" }, { name: "Manuel" }];
-console.log(personData.indexOf({ name: "Manuel" })); //indexOf or lastIndexOf returns '-1' if value not found. PS: objects cant be compared as no two objects are the same
+// console.log(testResults.includes(10.99)); //returns a boolean if value found or not
 
-const manuel = personData.find((person, index, persons) => {
-  return person.name === "Manuel";
+// const personData = [{ name: "Max" }, { name: "Manuel" }];
+// console.log(personData.indexOf({ name: "Manuel" })); //indexOf or lastIndexOf returns '-1' if value not found. PS: objects cant be compared as no two objects are the same
+
+// const manuel = personData.find((person, index, persons) => {
+//   return person.name === "Manuel";
+// });
+
+// manuel.name = "Anne"; //find doesnt create a copy
+
+// console.log(manuel, personData);
+
+// const maxIndex = personData.findIndex((person, idx, persons) => {
+//   return (person.name = "Max");
+// });
+
+// console.log(maxIndex);
+
+const prices = [10.99, 5.99, 3.99, 6.59];
+const tax = 0.19;
+const taxAdjustedPrices = [];
+
+// for (const price of prices) {
+//   taxAdjustedPrices.push(price * (1 + tax));
+// }
+
+prices.forEach((price, index, prices) => {
+  const priceObj = { index: index, taxAdjustedPrices: price * (1 + tax) };
+  taxAdjustedPrices.push(priceObj);
 });
 
-manuel.name = "Anne"; //find doesnt create a copy
-
-console.log(manuel, personData);
-
-const maxIndex = personData.findIndex((person, idx, persons) => {
-  return (person.name = "Max");
-});
-
-console.log(maxIndex);
+console.log(taxAdjustedPrices);

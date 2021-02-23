@@ -17,4 +17,17 @@ console.log(listItems);
 const arrayListItems = Array.from(listItems);
 console.log(arrayListItems);
 
+const hobbies = ["Cooking", "Sports"];//same data type
+const personalData = [30, "Max", {moreDetauk: []}];//different data types
+
+const analuticsData = [[1, 1.6], [-5.4, 2.1]];//array within array
+
+for (const data of analuticsData){
+  for (const dataPoint of data){
+    console.log(dataPoint);
+  }
+}
+
+console.log(personalData[1]);//index starts from 0. length of array is maxIndex+1
+
 

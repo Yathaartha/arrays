@@ -60,4 +60,18 @@ console.log(testResults.indexOf(1.5)); //searches for the index of the value pas
 console.log(testResults.lastIndexOf(1.5)); //searches for the index of the value passed from the end
 
 const personData = [{ name: "Max" }, { name: "Manuel" }];
-console.log(personData.indexOf({ name: "Manuel" })); //indexOf or lastIndexOf returns '-1' if value not found
+console.log(personData.indexOf({ name: "Manuel" })); //indexOf or lastIndexOf returns '-1' if value not found. PS: objects cant be compared as no two objects are the same
+
+const manuel = personData.find((person, index, persons) => {
+  return person.name === "Manuel";
+});
+
+manuel.name = "Anne"; //find doesnt create a copy
+
+console.log(manuel, personData);
+
+const maxIndex = personData.findIndex((person, idx, persons) => {
+  return (person.name = "Max");
+});
+
+console.log(maxIndex);

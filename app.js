@@ -42,3 +42,9 @@ console.log(hobbies);
 hobbies[1] = "Coding";//changes the value of the position
 hobbies[5] = "Reading";//if added to empty spot, new emty elements are created
 console.log(hobbies, hobbies[4]);
+
+hobbies.splice(1, 0, "Good Food");//insert element at position and delete elements
+console.log(hobbies);
+
+const removedElements = hobbies.splice(0, 1);//deletes all items
+//negative values goes to the end

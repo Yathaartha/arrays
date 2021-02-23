@@ -104,8 +104,23 @@ const sortedPrices = prices.sort((a, b) => {
 });
 console.log(sortedPrices.reverse()); //changing the sort() logic also reverses
 
-const filteredArray = prices.filter((price, idx, prices) => {
-  return price > 6; // to filter out elements lower than 6
-});
+const filteredArray = prices.filter(
+  (p) => p > 6 // to filter out elements lower than 6
+);
 
 console.log(filteredArray);
+
+// let sum = 0;
+
+// prices.forEach((p) => (sum += p));
+
+// console.log(sum);
+
+const sum = prices.reduce((prevValue, curValue, curIndex, prices) => {
+  return prevValue + curValue;
+}, 0);
+
+// Shorter version
+// const sum = prices.reduce((prevValue, curValue) => prevValue + curValue, 0);
+
+console.log(sum);

@@ -83,77 +83,84 @@
 //   taxAdjustedPrices.push(priceObj);
 // });
 
-const prices = [10.99, 5.99, 3.99, 6.59];
-const tax = 0.19;
+// const prices = [10.99, 5.99, 3.99, 6.59];
+// const tax = 0.19;
 
-const taxAdjustedPrices = prices.map((price, index, prices) => {
-  const priceObj = { index: index, taxAdjustedPrices: price * (1 + tax) };
-  return priceObj;
-});
+// const taxAdjustedPrices = prices.map((price, index, prices) => {
+//   const priceObj = { index: index, taxAdjustedPrices: price * (1 + tax) };
+//   return priceObj;
+// });
 
-// console.log(taxAdjustedPrices);
+// // console.log(taxAdjustedPrices);
 
-const sortedPrices = prices.sort((a, b) => {
-  if (a > b) {
-    return 1;
-  } else if (a === b) {
-    return 0;
-  } else {
-    return -1;
-  }
-});
-console.log(sortedPrices.reverse()); //changing the sort() logic also reverses
+// const sortedPrices = prices.sort((a, b) => {
+//   if (a > b) {
+//     return 1;
+//   } else if (a === b) {
+//     return 0;
+//   } else {
+//     return -1;
+//   }
+// });
+// console.log(sortedPrices.reverse()); //changing the sort() logic also reverses
 
-const filteredArray = prices.filter(
-  (p) => p > 6 // to filter out elements lower than 6
-);
+// const filteredArray = prices.filter(
+//   (p) => p > 6 // to filter out elements lower than 6
+// );
 
-console.log(filteredArray);
+// console.log(filteredArray);
 
-// let sum = 0;
+// // let sum = 0;
 
-// prices.forEach((p) => (sum += p));
+// // prices.forEach((p) => (sum += p));
+
+// // console.log(sum);
+
+// const sum = prices.reduce((prevValue, curValue, curIndex, prices) => {
+//   return prevValue + curValue;
+// }, 0);
+
+// // Shorter version
+// // const sum = prices.reduce((prevValue, curValue) => prevValue + curValue, 0);
 
 // console.log(sum);
 
-const sum = prices.reduce((prevValue, curValue, curIndex, prices) => {
-  return prevValue + curValue;
-}, 0);
+// const data = "new york; 10.00; 2000";
 
-// Shorter version
-// const sum = prices.reduce((prevValue, curValue) => prevValue + curValue, 0);
+// const transformedData = data.split(";"); //splits a string into an array based on the character provided
+// transformedData[1] = +transformedData[1];
+// console.log(transformedData);
 
-console.log(sum);
+// const nameFragments = ["Max", "Schwarz"];
+// const nameDefragmented = nameFragments.join(" "); //default is 'comma'. you can specify what is put between the data you want to merge
+// console.log(nameDefragmented);
 
-const data = "new york; 10.00; 2000";
+// const copiedNameFragments = [...nameFragments]; //not referenced based
+// nameFragments.push("Mr");
+// console.log(nameFragments, copiedNameFragments);
 
-const transformedData = data.split(";"); //splits a string into an array based on the character provided
-transformedData[1] = +transformedData[1];
-console.log(transformedData);
+// console.log(Math.min(...prices)); //cant be used on arrays
 
-const nameFragments = ["Max", "Schwarz"];
-const nameDefragmented = nameFragments.join(" "); //default is 'comma'. you can specify what is put between the data you want to merge
-console.log(nameDefragmented);
+// const persons = [
+//   { name: "Max", age: 30 },
+//   { name: "Manuel", age: 31 },
+// ];
 
-const copiedNameFragments = [...nameFragments]; //not referenced based
-nameFragments.push("Mr");
-console.log(nameFragments, copiedNameFragments);
+// const copiedPersons = [
+//   ...persons.map((person) => ({
+//     name: PerformanceResourceTiming.name,
+//     age: person.age,
+//   })),
+// ]; //do this if you dont want to have referenced values in the elements
 
-console.log(Math.min(...prices)); //cant be used on arrays
+// persons.push({ name: "Anna", age: 29 }); //not added in copiedPersons
+// persons[0].age = 31; //changes in copiedPersons as well because the elements were there when it was copied
 
-const persons = [
-  { name: "Max", age: 30 },
-  { name: "Manuel", age: 31 },
-];
+// console.log(persons, copiedPersons);
 
-const copiedPersons = [
-  ...persons.map((person) => ({
-    name: PerformanceResourceTiming.name,
-    age: person.age,
-  })),
-]; //do this if you dont want to have referenced values in the elements
+const nameData = ["Max", "Schwarz", "Mr", 30];
+// const firstName = nameData[0];
+// const lastName = nameData[1];
 
-persons.push({ name: "Anna", age: 29 }); //not added in copiedPersons
-persons[0].age = 31; //changes in copiedPersons as well because the elements were there when it was copied
-
-console.log(persons, copiedPersons);
+const [firstName, lastName, ...otherInfo] = nameData;
+console.log(firstName, lastName, ...otherInfo);

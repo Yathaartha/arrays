@@ -124,3 +124,13 @@ const sum = prices.reduce((prevValue, curValue, curIndex, prices) => {
 // const sum = prices.reduce((prevValue, curValue) => prevValue + curValue, 0);
 
 console.log(sum);
+
+const data = "new york; 10.00; 2000";
+
+const transformedData = data.split(";"); //splits a string into an array based on the character provided
+transformedData[1] = +transformedData[1];
+console.log(transformedData);
+
+const nameFrangments = ["Max", "Schwarz"];
+const nameDefragmented = nameFrangments.join(" "); //default is 'comma'. you can specify what is put between the data you want to merge
+console.log(nameDefragmented);

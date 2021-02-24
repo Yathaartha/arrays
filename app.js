@@ -131,6 +131,29 @@ const transformedData = data.split(";"); //splits a string into an array based o
 transformedData[1] = +transformedData[1];
 console.log(transformedData);
 
-const nameFrangments = ["Max", "Schwarz"];
-const nameDefragmented = nameFrangments.join(" "); //default is 'comma'. you can specify what is put between the data you want to merge
+const nameFragments = ["Max", "Schwarz"];
+const nameDefragmented = nameFragments.join(" "); //default is 'comma'. you can specify what is put between the data you want to merge
 console.log(nameDefragmented);
+
+const copiedNameFragments = [...nameFragments]; //not referenced based
+nameFragments.push("Mr");
+console.log(nameFragments, copiedNameFragments);
+
+console.log(Math.min(...prices)); //cant be used on arrays
+
+const persons = [
+  { name: "Max", age: 30 },
+  { name: "Manuel", age: 31 },
+];
+
+const copiedPersons = [
+  ...persons.map((person) => ({
+    name: PerformanceResourceTiming.name,
+    age: person.age,
+  })),
+]; //do this if you dont want to have referenced values in the elements
+
+persons.push({ name: "Anna", age: 29 }); //not added in copiedPersons
+persons[0].age = 31; //changes in copiedPersons as well because the elements were there when it was copied
+
+console.log(persons, copiedPersons);
